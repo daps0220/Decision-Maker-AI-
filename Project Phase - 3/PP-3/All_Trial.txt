@@ -1,0 +1,141 @@
+	
+All trials for all parameters of sklearn.metrics
+
+like acuuracy
+
+
+
+clf = BernoulliNB()
+		clf.fit(X_train,y_train)
+		if hasattr(clf, "predict_proba"):
+			print
+			print "INside IFFF..."
+       			prob_pos = clf.predict_proba(X_val)
+    		else:  # use decision function
+        		prob_pos = clf.decision_function(X_val)
+        		prob_pos = (prob_pos - prob_pos.min()) / (prob_pos.max() - prob_pos.min())
+		 
+
+		#print "Predict Pros: ",
+		#print prob_pos
+		
+		#print "Calibrated..."
+		#print calibration_curve(y_val, prob_pos)
+		"""
+		
+		"""
+
+clf = LogisticRegression()
+		clf.fit(X_train,y_train)
+		if hasattr(clf, "predict_proba"):
+			print
+			print "INside IFFF..."
+       			prob_pos = clf.predict_proba(X_val)
+    		else:  # use decision function
+        		prob_pos = clf.decision_function(X_val)
+        		prob_pos = (prob_pos - prob_pos.min()) / (prob_pos.max() - prob_pos.min())
+		 
+
+		#print "Predict Pros: ",
+		#print prob_pos
+		
+		#print "Calibrated..."
+		#print calibration_curve(y_val, prob_pos)
+		"""
+		
+		"""
+
+clf = SVC(kernel='poly', degree=4, probability=True, random_state=0)
+		clf.fit(X_train,y_train)
+		if hasattr(clf, "predict_proba"):
+			print
+			print "INside IFFF..."
+       			prob_pos = clf.predict_proba(X_val)
+    		else:  # use decision function
+        		prob_pos = clf.decision_function(X_val)
+        		prob_pos = (prob_pos - prob_pos.min()) / (prob_pos.max() - prob_pos.min())
+		 
+
+		#print "Predict Pros: ",
+		#print prob_pos
+		
+		#print "Calibrated..."
+		#print calibration_curve(y_val, prob_pos)
+		"""
+		
+		"""
+
+
+clf = BernoulliNB()
+		clf.fit(X_train,y_train)
+		predicted = clf.predict(X_val)
+
+		logloss= log_loss(predicted,prob_pos)
+
+		accuracy = accuracy_score(y_val,predicted)
+		precision = precision_score(y_val,predicted, average = 'micro')
+		
+		print "\n.......Arrays Output...... BernoulliNB()"
+		print acc
+		count_Excellent_total = (y_val=='Excellent').sum()
+		count_Trash_total = y_val.shape[0] - count_Excellent_total
+		count_Excellent_predicted= (predicted=='Excellent').sum()
+		count_Trash_predicted = predicted.shape[0] - count_Excellent_predicted		
+		print "Y_E : ",count_Excellent_total
+		print "Y_T : ",count_Trash_total
+		print "X_E : ",count_Excellent_predicted
+		print "X_T : ",count_Trash_predicted	"""
+		"""
+		
+
+
+
+clf = LogisticRegression()
+		clf.fit(X_train,y_train)
+		predicted = clf.predict(X_val)
+
+
+		logloss = log_loss(predicted,prob_pos)
+
+		print "\n.......Arrays Output...... LR"
+		print logloss
+
+		accuracy = accuracy_score(y_val,predicted)
+
+		precision = precision_score(y_val,predicted, average = 'micro')
+		
+		"""
+		"""count_Excellent_total = (y_val=='Excellent').sum()
+		count_Trash_total = y_val.shape[0] - count_Excellent_total
+		count_Excellent_predicted= (predicted=='Excellent').sum()
+		count_Trash_predicted = predicted.shape[0] - count_Excellent_predicted		
+		print "Y_E : ",count_Excellent_total
+		print "Y_T : ",count_Trash_total
+		print "X_E : ",count_Excellent_predicted
+		print "X_T : ",count_Trash_predicted	"""
+		"""
+		
+clf = SVC(kernel='poly', degree=4, probability=True, random_state=0)
+		clf.fit(X_train,y_train)
+		predicted = clf.predict(X_val)
+		
+		logloss = log_loss(predicted,prob_pos)
+
+		print "\n.......Arrays Output......SVC"
+		print logloss
+
+		accuracy = accuracy_score(y_val,predicted)
+
+		precision = precision_score(y_val,predicted, average = 'micro')		
+
+		"""
+		"""
+		count_Excellent_total = (y_val=='Excellent').sum()
+		count_Trash_total = y_val.shape[0] - count_Excellent_total
+		count_Excellent_predicted= (predicted=='Excellent').sum()
+		count_Trash_predicted = predicted.shape[0] - count_Excellent_predicted		
+		print "Y_E : ",count_Excellent_total
+		print "Y_T : ",count_Trash_total
+		print "X_E : ",count_Excellent_predicted
+		print "X_T : ",count_Trash_predicted	
+
